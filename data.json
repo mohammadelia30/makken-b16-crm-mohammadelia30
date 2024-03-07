@@ -1,0 +1,45 @@
+{
+  "user": {
+    "name": "mohammad",
+    "last name": "mohammadi",
+    "is login": true,
+    "age": 22,
+    "address": {
+      "sity": "tehran",
+      "street": "resalat",
+      "post code": "255525"
+    },
+    "phone": [
+      {
+        "where": "hone",
+        "number": "252568055"
+      },
+      {
+        "where": "daftar",
+        "number": "252568055"
+      }
+    ],
+    "comment": null
+  },
+  "product":{
+    "name":"شلوار کردی",
+    "price" : 200000,
+    "colo": [
+      {
+        "type": "#fffffff"
+      },
+      {
+        "type" : "#eeeeee"
+      }
+    ],
+    "status": "موجود",
+    "comment": null
+  },
+  "orders":{
+    "sendname" :"arya",
+    "getna": "amirhosean",
+    "ordercode":22525585,
+    "date":"1403/2/4",
+    "time" :"09:00"
+  }
+}
