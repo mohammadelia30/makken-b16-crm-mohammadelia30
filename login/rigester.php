@@ -40,27 +40,30 @@
       <h4 class="text-white">وضعیت:</h4>
       <br>
       <div class="form-check">
-        <input type="radio" class="form-check-input" id="radio1" name="status" value="normal" >
+        <input type="radio" class="form-check-input" id="radio1" name="status" value="عادی" >
         <label class="form-check-label text-white" for="radio1">عادی</label>
       </div>
       <div class="form-check">
-        <input type="radio" class="form-check-input" id="radio2" name="status" value="primary">
+        <input type="radio" class="form-check-input" id="radio2" name="status" value="ویژه">
         <label class="form-check-label text-white" for="radio2">ویژه</label>
       </div>
       <br>
       <h4 class="text-white">جنسیت:</h4>
       <br>
       <div class="form-check">
-        <input type="radio" class="form-check-input" id="radio1" name="gender" value="mail" >
-        <label class="form-check-label text-white" for="radio1">عادی</label>
+        <input type="radio" class="form-check-input" id="radio1" name="gender" value="آقا" >
+        <label class="form-check-label text-white" for="radio1">آقا</label>
       </div>
       <div class="form-check">
-        <input type="radio" class="form-check-input" id="radio2" name="gender" value="femail">
-        <label class="form-check-label text-white" for="radio2">ویژه</label>
+        <input type="radio" class="form-check-input" id="radio2" name="gender" value="خانم">
+        <label class="form-check-label text-white" for="radio2">خانم</label>
       </div>
       <br>
       <label for="comment1" class="text-white">آدرس:</label>
       <textarea class="form-control" rows="5" id="comment1" name="address" placeholder="آدرس"></textarea>
+      <br>
+      <label for="comment1" class="text-white">توضیحات:</label>
+      <textarea class="form-control" rows="5" id="comment1" name="comment" placeholder="توضیحات"></textarea>
       <br>
       <button type="submit" class="btn btn-outline-success">ثبت نام</button>
     </form>
