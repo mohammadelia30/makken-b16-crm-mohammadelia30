@@ -73,8 +73,8 @@
         <td><?php echo $row["price"] ?> تومان</td>
         <td><input type="color" class="form-control form-control-color" id="pwd" value="<?php echo $row["color"] ?>" name="color" readonly>
         </td>
-        <td>موجود</td>
-        <td>200</td>
+        <td><?php echo $row["status"] ?></td>
+        <td><?php echo $row["number"] ?></td>
         <td><textarea class="form-control" rows="5" id="comment1" name="comment" placeholder="توضیحات"
             readonly><?php echo $row["comment"] ?></textarea></td>
         <td><a href="../index.php?type=Del&own=product&id=<?php echo $row["id"] ?>"><button class="btn btn-outline-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
