@@ -37,12 +37,10 @@
         <div class="valid-feedback">درست</div>
         <div class="invalid-feedback">این فیلد اجباری</div>
       </div>
-    </form>
-    <form action="/action_page.php">
       <h4 class="text-white">وضعیت:</h4>
       <br>
       <div class="form-check">
-        <input type="radio" class="form-check-input" id="radio1" name="status" value="عادی" checked>
+        <input type="radio" class="form-check-input" id="radio1" name="status" value="عادی">
         <label class="form-check-label text-white" for="radio1">عادی</label>
       </div>
       <div class="form-check">
@@ -53,7 +51,7 @@
       <h4 class="text-white">جنسیت:</h4>
       <br>
       <div class="form-check">
-        <input type="radio" class="form-check-input" id="radio1" name="gender" value="آقا" checked>
+        <input type="radio" class="form-check-input" id="radio1" name="gender" value="آقا">
         <label class="form-check-label text-white" for="radio1">آقا</label>
       </div>
       <div class="form-check">
