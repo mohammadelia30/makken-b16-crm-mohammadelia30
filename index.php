@@ -28,7 +28,7 @@ if ($type == "Add") {
     echo $query;
     mysqli_query($conn, $query);
     header("Location: ./$table/" . "$table" . "_list.php");
-} elseif ($type == "Edit") {
+}elseif ($type == "Edit") {
     $id = $_GET["id"];
     $endk = array_key_last($_POST);
     $query = "UPDATE $table SET ";
@@ -44,4 +44,8 @@ if ($type == "Add") {
     echo $query;
     mysqli_query($conn, $query);
     header("Location:" . "./$table/$table". "_list.php");
-}
+}elseif ($type == "Del") {
+    $id = $_GET["id"];
+    $query = "DELETE FROM $table WHERE id=$id;";
+    mysqli_query($conn, $query);
+    header("Location:" . "./$table/$table". "_list.php");}
