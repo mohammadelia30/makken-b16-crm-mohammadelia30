@@ -8,7 +8,7 @@ $type = $_GET["type"];
 $table = $_GET["own"];
 if ($type == "Add") {
     $endk = array_key_last($_POST);
-    $query = "INSERT INTO $table (";
+    $query = "INSERT INTO `$table` (";
     foreach ($_POST as $key => $value) {
         $query .= $key;
         if ($key !== $endk) {
@@ -25,10 +25,9 @@ if ($type == "Add") {
             $query .= "'$value');";
         }
     }
-    echo $query;
     mysqli_query($conn, $query);
     header("Location: ./$table/" . "$table" . "_list.php");
-}elseif ($type == "Edit") {
+} elseif ($type == "Edit") {
     $id = $_GET["id"];
     $endk = array_key_last($_POST);
     $query = "UPDATE $table SET ";
@@ -41,11 +40,11 @@ if ($type == "Add") {
         }
     }
     $query .= "WHERE id=$id;";
-    echo $query;
     mysqli_query($conn, $query);
-    header("Location:" . "./$table/$table". "_list.php");
-}elseif ($type == "Del") {
+    header("Location:" . "./$table/$table" . "_list.php");
+} elseif ($type == "Del") {
     $id = $_GET["id"];
     $query = "DELETE FROM $table WHERE id=$id;";
     mysqli_query($conn, $query);
-    header("Location:" . "./$table/$table". "_list.php");}
+    header("Location:" . "./$table/$table" . "_list.php");
+}
