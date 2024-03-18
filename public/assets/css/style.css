@@ -1,0 +1,36 @@
+.panel{
+    border-bottom: 2px solid #b1b0b0;
+}
+.mynav{
+    position:absolute;
+    left: 60px;
+}
+li{
+    margin-bottom: 5px ;
+    margin-left: 25px;
+}
+.row_div{
+    border-radius: 6px;
+    margin: 10px;
+    text-align: center;
+    width: 25%;
+    background-color: rgb(204, 198, 198);
+}
+img{
+    margin-top: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+.container{
+    width:fit-content;
+}
+.but{
+margin-bottom: 8px;
+}
+.login-div{
+    padding: 20px;
+    position:absolute;
+    top: 100px;
+    left: 500px;
+    width: 500px;
+}
