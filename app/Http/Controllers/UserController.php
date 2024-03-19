@@ -7,10 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    public function create(Request $request)
-    {
+    public function create(Request $request){
         DB::table("users")->insert([$request->except("_token")]);
-        return redirect("/users/index");
+        return redirect("list");
     }
     public function edit(Request $request,$id){
         DB::table('users')->where("id",$id)->update([
@@ -23,6 +22,10 @@ class UserController extends Controller
             "address"=> $request->address,
             "comment"=> $request->comment
         ]);
-        return redirect("/users/index");
+        return redirect("list");
+    }
+    public function delete($id){
+        DB::table('users')->where('id',$id)->delete();
+        return redirect('list');
     }
 }
