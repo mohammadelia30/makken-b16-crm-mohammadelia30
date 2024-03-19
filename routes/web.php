@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,11 +31,10 @@ Route::get('/login/register',function(){
 Route::get('/user/create', function () {
     return view('users.create');
 });
-Route::get('users/index', [UserController::class,'index'])->name('list');
+Route::get('users/index', [UserController::class,'index'])->name('userslist');
 Route::get('/user/edit/{id}', function ($id) {
     $user =DB::table('users')->where('id', $id)->first();
     return view('users.edit',['user'=> $user]);
-
 });
 // User Post Route
 Route::post('/user/creat', [UserController::class,'create']);
@@ -44,10 +44,7 @@ Route::delete('/user/delete/{id}',[UserController::class,'delete']) ;
 Route::get('/product/create', function () {
     return view('products.create');
 });
-Route::get('/products/index', function () {
-    $products = DB::table('products')->get();
-    return view('products.index',['products'=> $products]);
-});
+Route::get('/products/index', [ProductController::class,'index'])->name('productslist');
 Route::get('/product/edit/{id}', function ($id) {
     $product = DB::table('products')->where('id',$id)->first();
     return view('products.edit',['product'=> $product]);
