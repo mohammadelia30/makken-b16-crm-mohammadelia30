@@ -33,19 +33,16 @@ Route::get('/user/create', function () {
 Route::get('users/index', function () {
     $users = DB::table('users')->get();
     return view('users.index',['users'=> $users]);
-});
+})->name('list');
 Route::get('/user/edit/{id}', function ($id) {
     $user =DB::table('users')->where('id', $id)->first();
     return view('users.edit',['user'=> $user]);
 
 });
 // User Post Route
-Route::post('/user/creat', [UserController::class,'create']) ;
+Route::post('/user/creat', [UserController::class,'create']);
 Route::post('/user/edit/{id}', [UserController::class,'edit']) ;
-Route::delete('/user/delete/{id}', function ($id){
-    DB::table('users')->where('id',$id)->delete();
-    return redirect('/users/index');
-});
+Route::delete('/user/delete/{id}',[UserController::class,'delete']) ;
 // Product Get Route
 Route::get('/product/create', function () {
     return view('products.create');
