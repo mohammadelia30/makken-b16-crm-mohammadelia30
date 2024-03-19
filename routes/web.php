@@ -37,9 +37,9 @@ Route::get('/user/edit/{id}', function ($id) {
     return view('users.edit',['user'=> $user]);
 });
 // User Post Route
-Route::post('/user/creat', [UserController::class,'create']);
-Route::post('/user/edit/{id}', [UserController::class,'edit']) ;
-Route::delete('/user/delete/{id}',[UserController::class,'delete']) ;
+Route::post('/user/creat', [UserController::class,'create'])->name('usercreate');
+Route::post('/user/edit/{id}', [UserController::class,'edit'])->name('useredit');
+Route::delete('/user/delete/{id}',[UserController::class,'delete'])->name('userdelete');
 // Product Get Route
 Route::get('/product/create', function () {
     return view('products.create');
