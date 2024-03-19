@@ -41,19 +41,7 @@ Route::get('/user/edit/{id}', function ($id) {
 });
 // User Post Route
 Route::post('/user/creat', [UserController::class,'create']) ;
-Route::post('/user/edit/{id}', function (Request $request, $id) {
-    DB::table('users')->where("id",$id)->update([
-        'first_name'=> $request->first_name,
-        'last_name'=> $request->last_name,
-        'password' => $request->password,
-        'phone_number' => $request->phone_number,
-        'status'=> $request->status,
-        'gender'=> $request->gender,
-        'address'=> $request->address,
-        'comment'=> $request->comment,
-    ]);
-    return redirect('users/index');
-});
+Route::post('/user/edit/{id}', [UserController::class,'edit']) ;
 Route::delete('/user/delete/{id}', function ($id){
     DB::table('users')->where('id',$id)->delete();
     return redirect('/users/index');
