@@ -30,10 +30,7 @@ Route::get('/login/register',function(){
 Route::get('/user/create', function () {
     return view('users.create');
 });
-Route::get('users/index', function () {
-    $users = DB::table('users')->get();
-    return view('users.index',['users'=> $users]);
-})->name('list');
+Route::get('users/index', [UserController::class,'index'])->name('list');
 Route::get('/user/edit/{id}', function ($id) {
     $user =DB::table('users')->where('id', $id)->first();
     return view('users.edit',['user'=> $user]);
