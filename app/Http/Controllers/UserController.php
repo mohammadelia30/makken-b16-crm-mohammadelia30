@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    public function index(Request $request){
+        $users = DB::table('users')->get();
+        return view('users.index',['users'=> $users]);
+    }
     public function create(Request $request){
         DB::table("users")->insert([$request->except("_token")]);
         return redirect("list");
