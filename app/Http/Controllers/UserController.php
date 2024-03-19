@@ -13,7 +13,7 @@ class UserController extends Controller
     }
     public function create(Request $request){
         DB::table("users")->insert([$request->except("_token")]);
-        return redirect("list");
+        return redirect()->route("userslist");
     }
     public function edit(Request $request,$id){
         DB::table('users')->where("id",$id)->update([
@@ -26,10 +26,10 @@ class UserController extends Controller
             "address"=> $request->address,
             "comment"=> $request->comment
         ]);
-        return redirect("list");
+        return redirect()->route("userslist");
     }
     public function delete($id){
         DB::table('users')->where('id',$id)->delete();
-        return redirect('list');
+        return redirect()->route("userslist");
     }
 }
