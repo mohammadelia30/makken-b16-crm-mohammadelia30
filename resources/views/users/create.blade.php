@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
   <div class="login-div">
-    <form action="/user/creat" method="post" class="was-validated">
+    <form action="{{route('usercreate')}}" method="post" class="was-validated">
       @csrf
       <h1>افزودن کاربر</h1>
       <br>

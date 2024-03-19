@@ -88,7 +88,7 @@
                         <textarea class="form-control" rows="5" id="comment1" name="comment" placeholder="توضیحات" readonly>{{ $user->comment }}</textarea>
                     </td>
                     <td>
-                        <form action="/user/delete/{{$user->id}}" method="POST">
+                        <form action="{{route('userdelete',$user->id)}}" method="POST">
                             @csrf
                             @method("delete")
                             <button onclick="return confirm('آیا از حذف این مورد اطمینان دارید')" type="submit" class="btn btn-outline-danger">
