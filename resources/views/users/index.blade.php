@@ -103,7 +103,7 @@
                         </form>
                     </td>
                     <td>
-                        <a href="/user/edit/{{ $user->id }}">
+                        <a href="{{route('useredit',$user->id)}}">
                             <button class="btn btn-outline-warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
