@@ -27,19 +27,22 @@ Route::get('/login/login',function(){
 Route::get('/login/register',function(){
     return view('login.register');
 });
- // Users Get Route
-Route::get('/user/create', function () {
-    return view('users.create');
+Route::prefix('users')->group( function () {
+     // Users Get Route
+Route::get('/create', function () {
+    return view('create');
 });
-Route::get('users/index', [UserController::class,'index'])->name('userslist');
-Route::get('/user/edit/{id}', function ($id) {
+Route::get('/index', [UserController::class,'index'])->name('userslist');
+Route::get('/edit/{id}', function ($id) {
     $user =DB::table('users')->where('id', $id)->first();
     return view('users.edit',['user'=> $user]);
 });
 // User Post Route
-Route::post('/user/creat', [UserController::class,'create'])->name('usercreate');
-Route::post('/user/edit/{id}', [UserController::class,'edit'])->name('useredit');
-Route::delete('/user/delete/{id}',[UserController::class,'delete'])->name('userdelete');
+Route::post('/creat', [UserController::class,'create'])->name('usercreate');
+Route::post('/edit/{id}', [UserController::class,'edit'])->name('useredit');
+Route::delete('/delete/{id}',[UserController::class,'delete'])->name('userdelete');
+});
+
 // Product Get Route
 Route::get('/product/create', function () {
     return view('products.create');
