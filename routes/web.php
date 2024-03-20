@@ -20,27 +20,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
-// Login Get Route
-Route::get('/login/login',function(){
-    return view('login.login');
-});
-Route::get('/login/register',function(){
-    return view('login.register');
+Route::prefix('login')->group(function () {
+    // Login Get Route
+    Route::get('/login',function(){
+        return view('login.login');
+    })->name('loginpage');
+    Route::get('/register',function(){
+        return view('login.register');
+    })->name('registerpage');
 });
 Route::prefix('users')->group( function () {
-// Users Get Route
-Route::get('/create', function () {
-    return view('users.create');
-})->name('usercreatepage');
-Route::get('/index', [UserController::class,'index'])->name('userslist');
-Route::get('/edit/{id}', function ($id) {
-    $user =DB::table('users')->where('id', $id)->first();
-    return view('users.edit',['user'=> $user]);
-})->name('usereditpage');
-// User Post Route
-Route::post('/creat', [UserController::class,'create'])->name('usercreate');
-Route::post('/edit/{id}', [UserController::class,'edit'])->name('useredit');
-Route::delete('/delete/{id}',[UserController::class,'delete'])->name('userdelete');
+    // Users Get Route
+    Route::get('/create', function () {
+        return view('users.create');
+    })->name('usercreatepage');
+    Route::get('/index', [UserController::class,'index'])->name('userslist');
+    Route::get('/edit/{id}', function ($id) {
+        $user =DB::table('users')->where('id', $id)->first();
+        return view('users.edit',['user'=> $user]);
+    })->name('usereditpage');
+    // User Post Route
+    Route::post('/creat', [UserController::class,'create'])->name('usercreate');
+    Route::post('/edit/{id}', [UserController::class,'edit'])->name('useredit');
+    Route::delete('/delete/{id}',[UserController::class,'delete'])->name('userdelete');
 });
 
 // Product Get Route
