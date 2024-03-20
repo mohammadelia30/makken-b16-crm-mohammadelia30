@@ -11,6 +11,13 @@ class UserController extends Controller
         $users = DB::table('users')->get();
         return view('users.index',['users'=> $users]);
     }
+    public function createPage(){
+        return view('users.create');
+    }
+    public function editPage($id){
+        $user =DB::table('users')->where('id', $id)->first();
+        return view('users.edit',['user'=> $user]);
+    }
     public function create(Request $request){
         DB::table("users")->insert([$request->except("_token")]);
         return redirect()->route("userslist");
