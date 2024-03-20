@@ -46,34 +46,13 @@ Route::prefix('users')->group( function () {
 });
 Route::prefix('products')->group(function () {
     // Product Get Route
-    Route::get('/create', function () {
-        return view('products.create')->name('productcreatepage');
-    });
+    Route::get('/create', [ProductController::class,'createPage'])->name('productcretepage');
     Route::get('/index', [ProductController::class,'index'])->name('productslist');
-    Route::get('/product/edit/{id}', function ($id) {
-        $product = DB::table('products')->where('id',$id)->first();
-        return view('products.edit',['product'=> $product]);
-    })->name('producteditpage');
+    Route::get('/edit/{id}',[ProductController::class,'editPage'])->name('producteditpage');
     // Product Post Route
-    Route::post('/create', function (Request $request) {
-        DB::table('products')->insert([$request->except('_token')]);
-        return redirect('/products/index');
-    })->name('productcreate');
-    Route::post('/edit/{id}', function (Request $request, $id) {
-        DB::table('products')->where('id',$id)->update([
-            'name'=> $request->name,
-            'price'=> $request->price,
-            'color' => $request->color,
-            'status'=> $request->status,
-            'number'=> $request->number,
-            'comment'=> $request->comment
-        ]);
-        return redirect('/products/index');
-    })->name('prouctedit');
-    Route::delete('/delete/{id}', function ($id) {
-        DB::table('products')->where('id',$id)->delete();
-        return redirect('/products/index');
-    })->name('productdelete');
+    Route::post('/create',[ProductController::class,'create'])->name('productcreate');
+    Route::post('/edit/{id}',[ProductController::class,'edit'])->name('prouctedit');
+    Route::delete('/delete/{id}',[ProductController::class,'delete'])->name('productdelete');
 });
 // Order Get Route
 Route::get('/order/create', function () {
