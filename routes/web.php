@@ -28,15 +28,15 @@ Route::get('/login/register',function(){
     return view('login.register');
 });
 Route::prefix('users')->group( function () {
-     // Users Get Route
+// Users Get Route
 Route::get('/create', function () {
-    return view('create');
-});
+    return view('users.create');
+})->name('usercreatepage');
 Route::get('/index', [UserController::class,'index'])->name('userslist');
 Route::get('/edit/{id}', function ($id) {
     $user =DB::table('users')->where('id', $id)->first();
     return view('users.edit',['user'=> $user]);
-});
+})->name('usereditpage');
 // User Post Route
 Route::post('/creat', [UserController::class,'create'])->name('usercreate');
 Route::post('/edit/{id}', [UserController::class,'edit'])->name('useredit');

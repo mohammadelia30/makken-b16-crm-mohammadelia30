@@ -19,8 +19,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">کاربران</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="index">لیست کاربران</a></li>
-                    <li><a class="dropdown-item" href="../user/create">افزودن کاربر</a></li>
+                    <li><a class="dropdown-item" href="{{route('userslist')}}">لیست کاربران</a></li>
+                    <li><a class="dropdown-item" href="{{route('usercreatepage')}}">افزودن کاربر</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -103,7 +103,7 @@
                         </form>
                     </td>
                     <td>
-                        <a href="{{route('useredit',$user->id)}}">
+                        <a href="{{route('usereditpage',$user->id)}}">
                             <button class="btn btn-outline-warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
