@@ -52,7 +52,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link bg-danger text-white mynav" href="../login/login.php">ورود/ثبت نام</a>
+                <a class="nav-link bg-danger text-white mynav" href="{{route('loginpage')}}">ورود/ثبت نام</a>
             </li>
         </ul>
     </div>

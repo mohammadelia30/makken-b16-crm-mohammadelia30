@@ -19,8 +19,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">کاربران</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../users/index">لیست کاربران</a></li>
-                    <li><a class="dropdown-item" href="../user/create">افزودن کاربر</a></li>
+                    <li><a class="dropdown-item" href="{{route('userslist')}}">لیست کاربران</a></li>
+                    <li><a class="dropdown-item" href="{{route('usercreatepage')}}">افزودن کاربر</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
@@ -52,7 +52,7 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link bg-danger text-white mynav" href="../login/login">ورود/ثبت نام</a>
+                <a class="nav-link bg-danger text-white mynav" href="{{route('loginpage')}}">ورود/ثبت نام</a>
             </li>
         </ul>
     </div>
