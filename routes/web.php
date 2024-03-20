@@ -44,42 +44,36 @@ Route::prefix('users')->group( function () {
     Route::post('/edit/{id}', [UserController::class,'edit'])->name('useredit');
     Route::delete('/delete/{id}',[UserController::class,'delete'])->name('userdelete');
 });
-
-// Product Get Route
-Route::get('/product/create', function () {
-    return view('products.create');
-});
-Route::get('/products/index', [ProductController::class,'index'])->name('productslist');
-Route::get('/product/edit/{id}', function ($id) {
-    $product = DB::table('products')->where('id',$id)->first();
-    return view('products.edit',['product'=> $product]);
-});
-// Product Post Route
-Route::post('/prosuct/create', function (Request $request) {
-    DB::table('products')->insert([
-        'name'=> $request->name,
-        'price' => $request->price,
-        'color'=> $request->color,
-        'status' => $request->status,
-        'number' => $request->number,
-        'comment' => $request->comment
-    ]);
-    return redirect('/products/index');
-});
-Route::post('/product/edit/{id}', function (Request $request, $id) {
-    DB::table('products')->where('id',$id)->update([
-        'name'=> $request->name,
-        'price'=> $request->price,
-        'color' => $request->color,
-        'status'=> $request->status,
-        'number'=> $request->number,
-        'comment'=> $request->comment
-    ]);
-    return redirect('/products/index');
-});
-Route::delete('product/delete/{id}', function ($id) {
-    DB::table('products')->where('id',$id)->delete();
-    return redirect('/products/index');
+Route::prefix('products')->group(function () {
+    // Product Get Route
+    Route::get('/create', function () {
+        return view('products.create')->name('productcreatepage');
+    });
+    Route::get('/index', [ProductController::class,'index'])->name('productslist');
+    Route::get('/product/edit/{id}', function ($id) {
+        $product = DB::table('products')->where('id',$id)->first();
+        return view('products.edit',['product'=> $product]);
+    })->name('producteditpage');
+    // Product Post Route
+    Route::post('/create', function (Request $request) {
+        DB::table('products')->insert([$request->except('_token')]);
+        return redirect('/products/index');
+    })->name('productcreate');
+    Route::post('/edit/{id}', function (Request $request, $id) {
+        DB::table('products')->where('id',$id)->update([
+            'name'=> $request->name,
+            'price'=> $request->price,
+            'color' => $request->color,
+            'status'=> $request->status,
+            'number'=> $request->number,
+            'comment'=> $request->comment
+        ]);
+        return redirect('/products/index');
+    })->name('prouctedit');
+    Route::delete('/delete/{id}', function ($id) {
+        DB::table('products')->where('id',$id)->delete();
+        return redirect('/products/index');
+    })->name('productdelete');
 });
 // Order Get Route
 Route::get('/order/create', function () {
