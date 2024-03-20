@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -51,37 +52,13 @@ Route::prefix('products')->group(function () {
 });
 Route::prefix('orders')->group(function () {
     // Order Get Route
-    Route::get('/order/create', function () {
-        return view('orders.create');
-    })->name('ordercreatepage');
-    Route::get('/orders/index', function () {
-        $orders = DB::table('orders')->get();
-        return view('orders.index', ['orders' => $orders]);
-    })->name('orderslist');
-    Route::get('/order/edit/{id}', function ($id) {
-        $order = DB::table('orders')->where('id', $id)->first();
-        return view('orders.edit', ['order' => $order]);
-    })->name('ordereditpage');
+    Route::get('/order/create', [OrderController::class,'createPage'])->name('ordercreatepage');
+    Route::get('/orders/index', [OrderController::class,'index'])->name('orderslist');
+    Route::get('/order/edit/{id}', [OrderController::class,'editPage'])->name('ordereditpage');
     // Order Post Route
-    Route::post('/order/create', function (Request $request) {
-        DB::table('orders')->insert([$request->except('_token')]);
-        return redirect()->route('orderslist');
-    });
-    Route::post('/edit/{id}', function (Request $request, $id) {
-        DB::table('orders')->where('id', $id)->update([
-            'sname' => $request->sname,
-            'gname' => $request->gname,
-            'code' => $request->code,
-            'date' => $request->date,
-            'time' => $request->time,
-            'comment' => $request->comment
-        ]);
-        return redirect('/orders/index');
-    })->name('orderedit');
-    Route::delete('/order/delete/{id}', function ($id) {
-        DB::table('orders')->where('id', $id)->delete();
-        return redirect('/orders/index');
-    });
+    Route::post('/order/create', [OrderController::class,'create'])->name('ordercreate');
+    Route::post('/edit/{id}', [OrderController::class,'edit'])->name('orderedit');
+    Route::delete('/order/delete/{id}', [OrderController::class,'delete'])->name('orderdelete');
 });
 // Posts Get Route
 Route::get('/posts/index', function () {
