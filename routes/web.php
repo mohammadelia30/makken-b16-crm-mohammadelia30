@@ -58,27 +58,27 @@ Route::prefix('orders')->controller(OrderController::class)->group(function () {
     Route::get('/index', 'index')->name('orderslist');
     Route::get('/edit/{id}', 'editPage')->name('ordereditpage');
     // Order Post Route
-    Route::post('/create','create')->name('ordercreate');
-    Route::post('/edit/{id}', [OrderController::class, 'edit'])->name('orderedit');
-    Route::delete('/delete/{id}', [OrderController::class, 'delete'])->name('orderdelete');
+    Route::post('/create', 'create')->name('ordercreate');
+    Route::post('/edit/{id}', 'edit')->name('orderedit');
+    Route::delete('/delete/{id}', 'delete')->name('orderdelete');
 });
-Route::prefix('posts')->group(function () {
+Route::prefix('posts')->controller(PostController::class)->group(function () {
     // Posts Get Route
-    Route::get('/index', [PostController::class, 'index'])->name('postslist');
-    Route::get('/create', [PostController::class, 'createPage'])->name('postcreatepage');
-    Route::get('/edit/{id}', [PostController::class, 'editPage'])->name('posteditpage');
+    Route::get('/index', 'index')->name('postslist');
+    Route::get('/create', 'createPage')->name('postcreatepage');
+    Route::get('/edit/{id}', 'editPage')->name('posteditpage');
     // Posts Post Route
-    Route::post('/edit/{id}', [PostController::class, 'edit'])->name('postedit');
-    Route::post('/create', [PostController::class, 'create'])->name('postcreate');
-    Route::delete('/delete/{id}', [PostController::class, 'delete'])->name('postdelete');
+    Route::post('/edit/{id}', 'edit')->name('postedit');
+    Route::post('/create', 'create')->name('postcreate');
+    Route::delete('/delete/{id}', 'delete')->name('postdelete');
 });
-Route::prefix('cats')->group(function () {
+Route::prefix('cats')->controller(CateguryController::class)->group(function () {
     // Categury Get Route
-    Route::get('/index', [CateguryController::class, 'index'])->name('categureslist');
-    Route::get('/create', [CateguryController::class, 'createPage'])->name('categutycreatepage');
-    Route::get('/edit/{id}', [CateguryController::class, 'editPage'])->name('categuryeditpage');
+    Route::get('/index', 'index')->name('categureslist');
+    Route::get('/create', 'createPage')->name('categutycreatepage');
+    Route::get('/edit/{id}', 'editPage')->name('categuryeditpage');
     // Categury Post Route
-    Route::post('/create', [CateguryController::class, 'create'])->name('categurycreate');
-    Route::post('/edit/{id}', [CateguryController::class, 'edit'])->name('categuryedit');
-    Route::delete('/delete/{id}', [CateguryController::class, 'delete'])->name('categurydelete');
+    Route::post('/create', 'create')->name('categurycreate');
+    Route::post('/edit/{id}', 'edit')->name('categuryedit');
+    Route::delete('/delete/{id}', 'delete')->name('categurydelete');
 });
