@@ -32,33 +32,33 @@ Route::prefix('login')->group(function () {
         return view('login.register');
     })->name('registerpage');
 });
-Route::prefix('users')->group(function () {
+Route::prefix('users')->controller(UserController::class)->group(function () {
     // Users Get Route
-    Route::get('/create', [UserController::class, 'createPage'])->name('usercreatepage');
-    Route::get('/index', [UserController::class, 'index'])->name('userslist');
-    Route::get('/edit/{id}', [UserController::class, 'editPage'])->name('usereditpage');
+    Route::get('/create', 'createPage')->name('usercreatepage');
+    Route::get('/index', 'index')->name('userslist');
+    Route::get('/edit/{id}', 'editPage')->name('usereditpage');
     // User Post Route
-    Route::post('/creat', [UserController::class, 'create'])->name('usercreate');
-    Route::post('/edit/{id}', [UserController::class, 'edit'])->name('useredit');
-    Route::delete('/delete/{id}', [UserController::class, 'delete'])->name('userdelete');
+    Route::post('/creat', 'create')->name('usercreate');
+    Route::post('/edit/{id}', 'edit')->name('useredit');
+    Route::delete('/delete/{id}', 'delete')->name('userdelete');
 });
-Route::prefix('products')->group(function () {
+Route::prefix('products')->controller(ProductController::class)->group(function () {
     // Product Get Route
-    Route::get('/create', [ProductController::class, 'createPage'])->name('productcretepage');
-    Route::get('/index', [ProductController::class, 'index'])->name('productslist');
-    Route::get('/edit/{id}', [ProductController::class, 'editPage'])->name('producteditpage');
+    Route::get('/create', 'createPage')->name('productcretepage');
+    Route::get('/index', 'index')->name('productslist');
+    Route::get('/edit/{id}', 'editPage')->name('producteditpage');
     // Product Post Route
-    Route::post('/create', [ProductController::class, 'create'])->name('productcreate');
-    Route::post('/edit/{id}', [ProductController::class, 'edit'])->name('prouctedit');
-    Route::delete('/delete/{id}', [ProductController::class, 'delete'])->name('productdelete');
+    Route::post('/create', 'create')->name('productcreate');
+    Route::post('/edit/{id}', 'edit')->name('prouctedit');
+    Route::delete('/delete/{id}', 'delete')->name('productdelete');
 });
-Route::prefix('orders')->group(function () {
+Route::prefix('orders')->controller(OrderController::class)->group(function () {
     // Order Get Route
-    Route::get('/create', [OrderController::class, 'createPage'])->name('ordercreatepage');
-    Route::get('/index', [OrderController::class, 'index'])->name('orderslist');
-    Route::get('/edit/{id}', [OrderController::class, 'editPage'])->name('ordereditpage');
+    Route::get('/create', 'createPage')->name('ordercreatepage');
+    Route::get('/index', 'index')->name('orderslist');
+    Route::get('/edit/{id}', 'editPage')->name('ordereditpage');
     // Order Post Route
-    Route::post('/create', [OrderController::class, 'create'])->name('ordercreate');
+    Route::post('/create','create')->name('ordercreate');
     Route::post('/edit/{id}', [OrderController::class, 'edit'])->name('orderedit');
     Route::delete('/delete/{id}', [OrderController::class, 'delete'])->name('orderdelete');
 });
