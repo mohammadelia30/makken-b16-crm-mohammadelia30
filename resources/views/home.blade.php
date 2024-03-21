@@ -41,8 +41,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">مقالات</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/posts/index">لیست مقالات</a></li>
-                    <li><a class="dropdown-item" href="/post/create">افزودن مقاله</a></li>
+                    <li><a class="dropdown-item" href="{{route('postslist')}}">لیست مقالات</a></li>
+                    <li><a class="dropdown-item" href="{{route('postcreatepage')}}">افزودن مقاله</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
