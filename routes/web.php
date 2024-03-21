@@ -64,14 +64,14 @@ Route::prefix('orders')->group(function () {
 Route::get('/posts/index', function () {
     $posts = DB::table('posts')->get();
     return view('posts.index', ['posts' => $posts]);
-});
+})->name('postslist');
 Route::get('/post/create', function () {
     return view('posts.create');
-});
+})->name('postcreatepage');
 Route::get('/post/edit/{id}', function ($id) {
     $post = DB::table('posts')->where('id', $id)->first();
     return view('posts.edit', ['post' => $post]);
-});
+})->name('posteditpage');
 // Posts Post Route
 Route::post('/post/edit/{id}', function (Request $request, $id) {
     DB::table('posts')->where('id', $id)->update([
@@ -81,20 +81,15 @@ Route::post('/post/edit/{id}', function (Request $request, $id) {
         'content' => $request->content
     ]);
     return redirect('/posts/index');
-});
+})->name('postedit');
 Route::post('/post/create', function (Request $request) {
-    DB::table('posts')->insert([
-        'title' => $request->title,
-        'auther' => $request->auther,
-        'categury_id' => $request->categury_id,
-        'content' => $request->content
-    ]);
+    DB::table('posts')->insert([$request->except('_tiken')]);
     return redirect('/posts/index');
-});
+})->name('postcreate');
 Route::delete('/post/delete/{id}', function ($id) {
     DB::table('posts')->where('id', $id)->delete();
     return redirect('/posts/index');
-});
+})->name('postdelete');
 // Categury Get Route
 Route::get('/cats/index', function () {
     $cats = DB::table('categury')->get();
