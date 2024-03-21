@@ -74,11 +74,11 @@ Route::prefix('posts')->group(function () {
 });
 Route::prefix('cats')->group(function () {
     // Categury Get Route
-    Route::get('/cats/index', [CateguryController::class, 'index'])->name('categureslist');
-    Route::get('/cat/create', [CateguryController::class, 'createPage'])->name('categutycreatepage');
-    Route::get('/cat/edit/{id}', [CateguryController::class, 'editPage'])->name('categuryeditpage');
+    Route::get('/index', [CateguryController::class, 'index'])->name('categureslist');
+    Route::get('/create', [CateguryController::class, 'createPage'])->name('categutycreatepage');
+    Route::get('/edit/{id}', [CateguryController::class, 'editPage'])->name('categuryeditpage');
     // Categury Post Route
-    Route::post('/cat/create', [CateguryController::class, 'create'])->name('categurycreate');
-    Route::post('/cat/edit/{id}', [CateguryController::class, 'edit'])->name('categuryedit');
-    Route::delete('/cat/delete/{id}', [CateguryController::class, 'delete'])->name('categurydelete');
+    Route::post('/create', [CateguryController::class, 'create'])->name('categurycreate');
+    Route::post('/edit/{id}', [CateguryController::class, 'edit'])->name('categuryedit');
+    Route::delete('/delete/{id}', [CateguryController::class, 'delete'])->name('categurydelete');
 });

@@ -26,29 +26,29 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">محصولات</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../products/index">لیست محصولات</a></li>
-                    <li><a class="dropdown-item" href="../product/create">افزودن محصول</a></li>
+                    <li><a class="dropdown-item" href="{{route('productslist')}}">لیست محصولات</a></li>
+                    <li><a class="dropdown-item" href="{{route('productcretepage')}}">افزودن محصول</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">سفارشات</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../orders/index">لیست سفارشات</a></li>
-                    <li><a class="dropdown-item" href="../order/create">افزودن سفارش</a></li>
+                    <li><a class="dropdown-item" href="{{route('orderslist')}}">لیست سفارشات</a></li>
+                    <li><a class="dropdown-item" href="{{route('ordercreatepage')}}">افزودن سفارش</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">مقالات</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../posts/index">لیست مقالات</a></li>
-                    <li><a class="dropdown-item" href="../post/create">افزودن مقاله</a></li>
+                    <li><a class="dropdown-item" href="{{route('postslist')}}">لیست مقالات</a></li>
+                    <li><a class="dropdown-item" href="{{route('postcreatepage')}}">افزودن مقاله</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">دسته بندی</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="../cats/index">لیست دسته بندی</a></li>
-                    <li><a class="dropdown-item" href="../cat/create">افزودن دسته بندی</a></li>
+                    <li><a class="dropdown-item" href="{{route('categureslist')}}">لیست دسته بندی</a></li>
+                    <li><a class="dropdown-item" href="{{route('categutycreatepage')}}">افزودن دسته بندی</a></li>
                 </ul>
             </li>
             <li class="nav-item">
