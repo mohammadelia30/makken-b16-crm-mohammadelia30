@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
     <div class="login-div">
-        <form action="/cat/create" method="POST" class="was-validated">
+        <form action="{{route('categurycreate')}}" method="POST" class="was-validated">
             @csrf
             <h1>افزودن دسته بندی</h1>
             <br>

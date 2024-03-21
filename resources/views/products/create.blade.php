@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
   <div class="login-div ">
-    <form action="/prosuct/create" method="post" class="was-validated">
+    <form action="{{route('productcreate')}}" method="post" class="was-validated">
         @csrf
         <h1>افزودن محصول</h1>
         <br>

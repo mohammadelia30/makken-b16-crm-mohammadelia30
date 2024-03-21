@@ -10,7 +10,7 @@
 </head>
 <body class="bg-dark text-white">
     <div class="login-div">
-        <form action="/order/edit/{{$order->id}}" method="post" class="was-validated">
+        <form action="{{route('orderedit',$order->id)}}" method="post" class="was-validated">
             @csrf
             <h1>ویرایش سفارش</h1>
             <br>

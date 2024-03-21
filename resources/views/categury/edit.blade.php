@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
     <div class="login-div">
-        <form action="/cat/edit/{{$cat->id}}" method="POST" class="was-validated">
+        <form action="{{route('categuryedit',$cat->id)}}" method="POST" class="was-validated">
             @csrf
             <h1>ویرایش دسته بندی</h1>
             <br>

@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
     <div class="login-div">
-        <form action="/order/create" method="POST" class="was-validated">
+        <form action="{{route('ordercreate')}}" method="POST" class="was-validated">
             @csrf
             <h1>افزودن سفارش</h1>
             <br>

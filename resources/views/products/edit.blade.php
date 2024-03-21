@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
   <div class="login-div">
-    <form action="/product/edit/{{$product->id}}" method="post" class="was-validated">
+    <form action="{{route('prouctedit',$product->id)}}" method="post" class="was-validated">
         @csrf
         <h1>ویرایش محصول</h1>
         <br>

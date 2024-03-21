@@ -12,7 +12,7 @@
 
 <body class="bg-dark text-white">
   <div class="login-div">
-    <form action="/post/edit/{{$post->id}}" method="POST" class="was-validated">
+    <form action="{{route('postedit',$post->id)}}" method="POST" class="was-validated">
         @csrf
         <h1>ویرایش مقاله</h1>
         <br>
