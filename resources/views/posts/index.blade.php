@@ -74,7 +74,7 @@
                     <td>{{$post->categury_id}}</td>
                     <td>{{$post->auther}}</td>
                     <td>
-                        <form action="/post/delete/{{$post->id}}" method="POST">
+                        <form action="{{ route('postdelete',$post->id)}}" method="POST">
                             @csrf
                             @method('delete')
                             <button onclick="return confirm('آیا از حذف این مورد اطمینان دارید')" type="submit" class="btn btn-outline-danger">
@@ -88,7 +88,7 @@
                             </button>
                         </form>
                     </td>
-                    <td><a href="../post/edit/{{$post->id}}">
+                    <td><a href="{{ route('posteditpage',$post->id)}}">
                             <button class="btn btn-outline-warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">

@@ -82,7 +82,7 @@
                         <textarea class="form-control" rows="5" id="comment1" name="comment" placeholder="توضیحات" readonly>{{ $order->comment }}</textarea>
                     </td>
                     <td>
-                        <form action="/order/delete/{{$order->id}}" method="POST">
+                        <form action="{{route('orderdelete', $order->id)}}" method="POST">
                             @csrf
                             @method('delete')
                             <button onclick="return confirm('آیا از حذف این مورد اطمینان دارید')" type="submit" class="btn btn-outline-danger">
@@ -96,7 +96,7 @@
                             </button>
                         </form>
                     </td>
-                    <td><a href="/order/edit/{{ $order->id }}">
+                    <td><a href="{{route('ordereditpage',$order->id)}}">
                             <button class="btn btn-outline-warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">

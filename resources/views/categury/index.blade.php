@@ -73,7 +73,7 @@
                     <td>{{$cat ->id}}</td>
 
                     <td>
-                        <form action="/cat/delete/{{$cat->id}}" method="POST">
+                        <form action="{{route('categurydelete',$cat->id)}}" method="POST">
                             @csrf
                             @method('delete')
                             <button onclick="return confirm('آیا از حذف این مورد اطمینان دارید')" type="submit" class="btn btn-outline-danger">
@@ -87,7 +87,7 @@
                             </button>
                         </form>
                     </td>
-                    <td><a href="/cat/edit/{{$cat->id}}">
+                    <td><a href="{{route('categuryeditpage',$cat->id)}}">
                             <button class="btn btn-outline-warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                     fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
