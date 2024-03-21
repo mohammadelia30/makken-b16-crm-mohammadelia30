@@ -34,8 +34,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">سفارشات</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/orders/index">لیست سفارشات</a></li>
-                    <li><a class="dropdown-item" href="/order/create">افزودن سفارش</a></li>
+                    <li><a class="dropdown-item" href="{{route('orderslist')}}">لیست سفارشات</a></li>
+                    <li><a class="dropdown-item" href="{{route('ordercreatepage')}}">افزودن سفارش</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">

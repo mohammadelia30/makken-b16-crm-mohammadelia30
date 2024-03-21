@@ -12,7 +12,7 @@ class OrderController extends Controller
         $orders = DB::table('orders')->get();
         return view('orders.index', ['orders' => $orders]);
     }
-    public function cretePage()
+    public function createPage()
     {
         return view('orders.create');
     }
