@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CateguryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -72,31 +73,10 @@ Route::prefix('posts')->group(function () {
     Route::delete('/post/delete/{id}', [PostController::class, 'delete'])->name('postdelete');
 });
 // Categury Get Route
-Route::get('/cats/index', function () {
-    $cats = DB::table('categury')->get();
-    return view('categury.index', ['cats' => $cats]);
-})->name('categureslist');
-Route::get('/cat/create', function () {
-    return view('categury.create');
-})->name('categutycreatepage');
-Route::get('/cat/edit/{id}', function ($id) {
-    $cat = DB::table('categury')->where('id', $id)->first();
-    return view('categury.edit', ['cat' => $cat]);
-})->name('categuryeditpage');
+Route::get('/cats/index', [CateguryController::class,'index'])->name('categureslist');
+Route::get('/cat/create', [CateguryController::class,'createPage'])->name('categutycreatepage');
+Route::get('/cat/edit/{id}',[CateguryController::class,'editPage'])->name('categuryeditpage');
 // Categury Post Route
-Route::post('/cat/create', function (Request $request) {
-    DB::table('categury')->insert([
-        'title' => $request->title
-    ]);
-    return redirect('/cats/index');
-})->name('categurycreate');
-Route::post('/cat/edit/{id}', function (Request $request, $id) {
-    DB::table('categury')->where('id', $id)->update([
-        'title' => $request->title
-    ]);
-    return redirect('/cats/index');
-})->name('categuryedit');
-Route::delete('/cat/delete/{id}', function ($id) {
-    DB::table('categury')->where('id', $id)->delete();
-    return redirect('/cats/index');
-})->name('categurydelete');
+Route::post('/cat/create', [CateguryController::class,'create'])->name('categurycreate');
+Route::post('/cat/edit/{id}', [CateguryController::class,'edit'])->name('categuryedit');
+Route::delete('/cat/delete/{id}', [CateguryController::class,'delete'])->name('categurydelete');
