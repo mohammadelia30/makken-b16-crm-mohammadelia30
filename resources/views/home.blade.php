@@ -15,7 +15,7 @@
     <div class="container mt-3 panel">
         <ul class="nav nav-pills ">
             <li class="nav-item">
-                <a class="nav-link active" href="./index.html">خانه</a>
+                <a class="nav-link active" href="/">خانه</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">کاربران</a>
@@ -48,8 +48,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">دسته بندی</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/cats/index">لیست دسته بندی</a></li>
-                    <li><a class="dropdown-item" href="/cat/create">افزودن دسته بندی</a></li>
+                    <li><a class="dropdown-item" href="{{route('categureslist')}}">لیست دسته بندی</a></li>
+                    <li><a class="dropdown-item" href="{{route('categutycreatepage')}}">افزودن دسته بندی</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
