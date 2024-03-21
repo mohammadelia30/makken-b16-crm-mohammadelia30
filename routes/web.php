@@ -53,22 +53,24 @@ Route::prefix('products')->group(function () {
 });
 Route::prefix('orders')->group(function () {
     // Order Get Route
-    Route::get('/order/create', [OrderController::class,'createPage'])->name('ordercreatepage');
-    Route::get('/orders/index', [OrderController::class,'index'])->name('orderslist');
-    Route::get('/order/edit/{id}', [OrderController::class,'editPage'])->name('ordereditpage');
+    Route::get('/order/create', [OrderController::class, 'createPage'])->name('ordercreatepage');
+    Route::get('/orders/index', [OrderController::class, 'index'])->name('orderslist');
+    Route::get('/order/edit/{id}', [OrderController::class, 'editPage'])->name('ordereditpage');
     // Order Post Route
-    Route::post('/order/create', [OrderController::class,'create'])->name('ordercreate');
-    Route::post('/edit/{id}', [OrderController::class,'edit'])->name('orderedit');
-    Route::delete('/order/delete/{id}', [OrderController::class,'delete'])->name('orderdelete');
+    Route::post('/order/create', [OrderController::class, 'create'])->name('ordercreate');
+    Route::post('/edit/{id}', [OrderController::class, 'edit'])->name('orderedit');
+    Route::delete('/order/delete/{id}', [OrderController::class, 'delete'])->name('orderdelete');
 });
-// Posts Get Route
-Route::get('/posts/index',[PostController::class,'index'])->name('postslist');
-Route::get('/post/create', [PostController::class,'createPage'])->name('postcreatepage');
-Route::get('/post/edit/{id}', [PostController::class,'editPage'])->name('posteditpage');
-// Posts Post Route
-Route::post('/post/edit/{id}', [PostController::class,'edit'])->name('postedit');
-Route::post('/post/create', [PostController::class,'create'])->name('postcreate');
-Route::delete('/post/delete/{id}', [PostController::class,'delete'])->name('postdelete');
+Route::prefix('posts')->group(function () {
+    // Posts Get Route
+    Route::get('/posts/index', [PostController::class, 'index'])->name('postslist');
+    Route::get('/post/create', [PostController::class, 'createPage'])->name('postcreatepage');
+    Route::get('/post/edit/{id}', [PostController::class, 'editPage'])->name('posteditpage');
+    // Posts Post Route
+    Route::post('/post/edit/{id}', [PostController::class, 'edit'])->name('postedit');
+    Route::post('/post/create', [PostController::class, 'create'])->name('postcreate');
+    Route::delete('/post/delete/{id}', [PostController::class, 'delete'])->name('postdelete');
+});
 // Categury Get Route
 Route::get('/cats/index', function () {
     $cats = DB::table('categury')->get();
