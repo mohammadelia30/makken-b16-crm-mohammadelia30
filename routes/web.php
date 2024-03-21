@@ -54,29 +54,31 @@ Route::prefix('products')->group(function () {
 });
 Route::prefix('orders')->group(function () {
     // Order Get Route
-    Route::get('/order/create', [OrderController::class, 'createPage'])->name('ordercreatepage');
-    Route::get('/orders/index', [OrderController::class, 'index'])->name('orderslist');
-    Route::get('/order/edit/{id}', [OrderController::class, 'editPage'])->name('ordereditpage');
+    Route::get('/create', [OrderController::class, 'createPage'])->name('ordercreatepage');
+    Route::get('/index', [OrderController::class, 'index'])->name('orderslist');
+    Route::get('/edit/{id}', [OrderController::class, 'editPage'])->name('ordereditpage');
     // Order Post Route
-    Route::post('/order/create', [OrderController::class, 'create'])->name('ordercreate');
+    Route::post('/create', [OrderController::class, 'create'])->name('ordercreate');
     Route::post('/edit/{id}', [OrderController::class, 'edit'])->name('orderedit');
-    Route::delete('/order/delete/{id}', [OrderController::class, 'delete'])->name('orderdelete');
+    Route::delete('/delete/{id}', [OrderController::class, 'delete'])->name('orderdelete');
 });
 Route::prefix('posts')->group(function () {
     // Posts Get Route
-    Route::get('/posts/index', [PostController::class, 'index'])->name('postslist');
-    Route::get('/post/create', [PostController::class, 'createPage'])->name('postcreatepage');
-    Route::get('/post/edit/{id}', [PostController::class, 'editPage'])->name('posteditpage');
+    Route::get('/index', [PostController::class, 'index'])->name('postslist');
+    Route::get('/create', [PostController::class, 'createPage'])->name('postcreatepage');
+    Route::get('/edit/{id}', [PostController::class, 'editPage'])->name('posteditpage');
     // Posts Post Route
-    Route::post('/post/edit/{id}', [PostController::class, 'edit'])->name('postedit');
-    Route::post('/post/create', [PostController::class, 'create'])->name('postcreate');
-    Route::delete('/post/delete/{id}', [PostController::class, 'delete'])->name('postdelete');
+    Route::post('/edit/{id}', [PostController::class, 'edit'])->name('postedit');
+    Route::post('/create', [PostController::class, 'create'])->name('postcreate');
+    Route::delete('/delete/{id}', [PostController::class, 'delete'])->name('postdelete');
 });
-// Categury Get Route
-Route::get('/cats/index', [CateguryController::class,'index'])->name('categureslist');
-Route::get('/cat/create', [CateguryController::class,'createPage'])->name('categutycreatepage');
-Route::get('/cat/edit/{id}',[CateguryController::class,'editPage'])->name('categuryeditpage');
-// Categury Post Route
-Route::post('/cat/create', [CateguryController::class,'create'])->name('categurycreate');
-Route::post('/cat/edit/{id}', [CateguryController::class,'edit'])->name('categuryedit');
-Route::delete('/cat/delete/{id}', [CateguryController::class,'delete'])->name('categurydelete');
+Route::prefix('cats')->group(function () {
+    // Categury Get Route
+    Route::get('/cats/index', [CateguryController::class, 'index'])->name('categureslist');
+    Route::get('/cat/create', [CateguryController::class, 'createPage'])->name('categutycreatepage');
+    Route::get('/cat/edit/{id}', [CateguryController::class, 'editPage'])->name('categuryeditpage');
+    // Categury Post Route
+    Route::post('/cat/create', [CateguryController::class, 'create'])->name('categurycreate');
+    Route::post('/cat/edit/{id}', [CateguryController::class, 'edit'])->name('categuryedit');
+    Route::delete('/cat/delete/{id}', [CateguryController::class, 'delete'])->name('categurydelete');
+});
