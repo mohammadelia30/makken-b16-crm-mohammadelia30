@@ -12,7 +12,7 @@ class ProductController extends Controller
         return view('products.index',['products'=> $products]);
     }
     public function createPage(){
-        return view('products.create')->name('productcreatepage');
+        return view('products.create');
     }
     public function editPage($id){
         $product = DB::table('products')->where('id',$id)->first();

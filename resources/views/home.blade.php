@@ -27,8 +27,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">محصولات</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="/products/index">لیست محصولات</a></li>
-                    <li><a class="dropdown-item" href="/product/create">افزودن محصول</a></li>
+                    <li><a class="dropdown-item" href="{{route('productslist')}}">لیست محصولات</a></li>
+                    <li><a class="dropdown-item" href="{{route('productcretepage')}}">افزودن محصول</a></li>
                 </ul>
             </li>
             <li class="nav-item dropdown">
