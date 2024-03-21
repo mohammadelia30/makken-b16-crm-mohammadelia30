@@ -28,7 +28,7 @@ class CateguryController extends Controller
     }
     public function edit(Request $request, $id)
     {
-        DB::table('categury')->where('id', $id)->update([$request->except('_token')]);
+        DB::table('categury')->where('id', $id)->update(['title'=>$request->title]);
         return redirect()->route('categureslist');
     }
     public function delete($id)
