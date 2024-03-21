@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
     public function create(Request $request){
         DB::table('products')->insert([$request->except('_token')]);
-        return redirect()->route('productlist');
+        return redirect()->route('productslist');
     }
     public function edit(Request $request,$id){
         DB::table('products')->where('id',$id)->update([
