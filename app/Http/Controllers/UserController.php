@@ -20,7 +20,6 @@ class UserController extends Controller
         return view('users.edit',['user'=> $user]);
     }
     public function create(UseraddRequest $request){
-        $request->validate();
         DB::table("users")->insert([$request->except("_token")]);
         return redirect()->route("userslist");
     }
