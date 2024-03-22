@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\OrderRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,12 +22,12 @@ class OrderController extends Controller
         $order = DB::table('orders')->where('id', $id)->first();
         return view('orders.edit', ['order' => $order]);
     }
-    public function crete(Request $request)
+    public function crete(OrderRequest $request)
     {
         DB::table('orders')->insert([$request->except('_token')]);
         return redirect()->route('orderslist');
     }
-    public function edit(Request $request, $id)
+    public function edit(OrderRequest $request, $id)
     {
         DB::table('orders')->where('id', $id)->update([
             'sname' => $request->sname,
