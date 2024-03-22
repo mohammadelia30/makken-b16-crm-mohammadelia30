@@ -14,6 +14,15 @@
   <div class="login-div">
     <form action="{{route('postedit',$post->id)}}" method="POST" class="was-validated">
         @csrf
+        @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <h1>ویرایش مقاله</h1>
         <br>
       <div class="mb-3 mt-3">
