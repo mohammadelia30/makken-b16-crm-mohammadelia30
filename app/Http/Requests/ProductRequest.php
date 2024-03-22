@@ -11,7 +11,7 @@ class ProductRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'price' => 'required',
+            'price' => 'required|min:5',
             'status' => 'required',
             'number' => 'required'
         ];
@@ -30,7 +30,8 @@ class ProductRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'price' => 'لطفا قیمت محصول را مشخص کنید',
+            'price.required' => 'لطفا قیمت محصول را مشخص کنید',
+            'price.min'=>'قیمت محصول نمی تواند کمتر از 10000',
             'status'=> 'وضعیت کالا نامشخص است',
             'number'=> 'تعداد کالا رامشخص کنید'
         ];
