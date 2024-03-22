@@ -23,7 +23,7 @@ class UserController extends Controller
         DB::table("users")->insert([$request->except("_token")]);
         return redirect()->route("userslist");
     }
-    public function edit(Request $request,$id){
+    public function edit(UsersRequest $request,$id){
         DB::table('users')->where("id",$id)->update([
             "first_name" => $request->first_name,
             "last_name"=> $request->last_name,
