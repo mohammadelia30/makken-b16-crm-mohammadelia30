@@ -34,7 +34,7 @@ class PostController extends Controller
     }
     public function create(PostRequest $request)
     {
-        DB::table('posts')->insert([$request->except('_tiken')]);
+        DB::table('posts')->insert([$request->except('_token')]);
         return redirect()->route('postslist');
     }
     public function delete($id)
