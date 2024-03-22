@@ -23,7 +23,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title'=>'required|min:4|max:10',
-            'auther'=>'required',
+            'auther'=>'required|min:6|max:10',
             'content'=> 'required'
         ];
     }
@@ -33,7 +33,8 @@ class PostRequest extends FormRequest
             'title.required'=> 'عنوان الزامی است',
             'title.min'=> 'عنوان باید حداقل ۴ حرف باشد',
             'title.max'=> 'عنوان نمی تواند بیش از ۱۰ خرف باشد',
-            'auther'=> 'نام نویسنده وارد نشده است',
+            'auther.min'=> 'تعداد حروف نویسندهکمتر از ۵ می باشد',
+            'auther.max'=>'تعداد حروف نویسنده بیشتر از حد مجاز است',
             'content'=> 'محتوا را وارد کنید'
         ];
     }
