@@ -37,8 +37,8 @@ class UseraddRequest extends FormRequest
             'phone_number.required' => 'شماره همراه معتبر نمی باشد',
             'phone_number.min' => 'شماره اشتباه است لطفا دقت کنید',
             'phone_number.max' => 'شماره اشتباه است لطفا دقت کنید',
-            'status.required'=> 'لطفا یکی را انتخاب کنید',
-            'gender.required'=> 'لطفا یکی را انتخاب کنید',
+            'status.required'=> '(عادی,ویژه)لطفا یکی را انتخاب کنید',
+            'gender.required'=> '(آقا,خانم)لطفا یکی را انتخاب کنید',
         ];
     }
 }
