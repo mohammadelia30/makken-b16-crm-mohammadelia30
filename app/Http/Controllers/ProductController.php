@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,11 +19,11 @@ class ProductController extends Controller
         $product = DB::table('products')->where('id',$id)->first();
         return view('products.edit',['product'=> $product]);
     }
-    public function create(Request $request){
+    public function create(ProductRequest $request){
         DB::table('products')->insert([$request->except('_token')]);
         return redirect()->route('productslist');
     }
-    public function edit(Request $request,$id){
+    public function edit(ProductRequest $request,$id){
         DB::table('products')->where('id',$id)->update([
             'name'=> $request->name,
             'price'=> $request->price,
