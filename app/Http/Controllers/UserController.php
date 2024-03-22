@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UseraddRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,8 @@ class UserController extends Controller
         $user =DB::table('users')->where('id', $id)->first();
         return view('users.edit',['user'=> $user]);
     }
-    public function create(Request $request){
+    public function create(UseraddRequest $request){
+        $request->validate();
         DB::table("users")->insert([$request->except("_token")]);
         return redirect()->route("userslist");
     }
