@@ -27,4 +27,14 @@ class PostRequest extends FormRequest
             'content'=> 'required'
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'title.required'=> 'عنوان الزامی است',
+            'title.min'=> 'عنوان باید حداقل ۴ حرف باشد',
+            'title.max'=> 'عنوان نمی تواند بیش از ۱۰ خرف باشد',
+            'auther'=> 'نام نویسنده وارد نشده است',
+            'content'=> 'محتوا را وارد کنید'
+        ];
+    }
 }
