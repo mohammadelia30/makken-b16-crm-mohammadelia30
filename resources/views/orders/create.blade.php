@@ -14,6 +14,15 @@
     <div class="login-div">
         <form action="{{route('ordercreate')}}" method="POST" class="was-validated">
             @csrf
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <h1>افزودن سفارش</h1>
             <br>
             <div class="mb-3 mt-3">
