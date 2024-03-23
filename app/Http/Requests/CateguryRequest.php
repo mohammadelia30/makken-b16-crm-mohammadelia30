@@ -22,7 +22,14 @@ class CateguryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title'=>'required|min:3|max:12'
+        ];
+    }
+    public function messages(): array{
+        return [
+            'title.required'=> 'عنوان دسته بندی را وارد کنید',
+            'title.min'=> 'عنوان نمی تواند کمتر از ۳ حرف باشد',
+            'title.max'=> 'عنوان دسته بندی نمی تواند بیش از ۱۰ حرف باشد'
         ];
     }
 }
