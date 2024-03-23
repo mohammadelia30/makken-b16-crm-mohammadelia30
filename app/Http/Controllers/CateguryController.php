@@ -21,7 +21,7 @@ class CateguryController extends Controller
         $cat = DB::table('categury')->where('id', $id)->first();
         return view('categury.edit', ['cat' => $cat]);
     }
-    public function crete(Request $request)
+    public function create(Request $request)
     {
         DB::table('categury')->insert([$request->except('_token')]);
         return redirect()->route('categureslist');
