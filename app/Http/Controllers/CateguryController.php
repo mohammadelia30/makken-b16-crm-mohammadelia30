@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CateguryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,12 +22,12 @@ class CateguryController extends Controller
         $cat = DB::table('categury')->where('id', $id)->first();
         return view('categury.edit', ['cat' => $cat]);
     }
-    public function create(Request $request)
+    public function create(CateguryRequest $request)
     {
         DB::table('categury')->insert([$request->except('_token')]);
         return redirect()->route('categureslist');
     }
-    public function edit(Request $request, $id)
+    public function edit(CateguryRequest $request, $id)
     {
         DB::table('categury')->where('id', $id)->update(['title'=>$request->title]);
         return redirect()->route('categureslist');
