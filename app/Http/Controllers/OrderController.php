@@ -22,7 +22,7 @@ class OrderController extends Controller
         $order = DB::table('orders')->where('id', $id)->first();
         return view('orders.edit', ['order' => $order]);
     }
-    public function crete(OrderRequest $request)
+    public function create(OrderRequest $request)
     {
         DB::table('orders')->insert([$request->except('_token')]);
         return redirect()->route('orderslist');
