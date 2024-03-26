@@ -17,8 +17,8 @@ class UserController extends Controller
         return response()->json($users);
     }
     public function create(UsersRequest $request){
-        DB::table("users")->insert([$request->except("_token")]);
-        return redirect()->route("userslist");
+        $users = DB::table("users")->insert($request->toArray());
+        return response()->json($users);
     }
     public function edit(UsersRequest $request,$id){
         DB::table('users')->where("id",$id)->update([
