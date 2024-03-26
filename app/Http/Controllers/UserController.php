@@ -21,17 +21,8 @@ class UserController extends Controller
         return response()->json($users);
     }
     public function edit(UsersRequest $request,$id){
-        DB::table('users')->where("id",$id)->update([
-            "first_name" => $request->first_name,
-            "last_name"=> $request->last_name,
-            "password" => $request->password,
-            "phone_number"=> $request->phone_number,
-            "status"=> $request->status,
-            "gender"=> $request->gender,
-            "address"=> $request->address,
-            "comment"=> $request->comment
-        ]);
-        return redirect()->route("userslist");
+        $users = DB::table('users')->where("id",$id)->update($request->toArray());
+        return response()->json($users);
     }
     public function delete($id){
         DB::table('users')->where('id',$id)->delete();
