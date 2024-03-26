@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('users')->controller(UserController::class)->as('users.')->group(function () {
     Route::get('index/{id?}','index')->name('index');
-    Route::post('creat', 'create')->name('create');
+    Route::post('create', 'create')->name('create');
     Route::post('edit/{id}', 'edit')->name('edit');
     Route::delete('delete/{id}', 'delete')->name('delete');
 });
