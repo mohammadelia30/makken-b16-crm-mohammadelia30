@@ -25,7 +25,7 @@ class UserController extends Controller
         return response()->json($users);
     }
     public function delete($id){
-        DB::table('users')->where('id',$id)->delete();
-        return redirect()->route("userslist");
+        $users = DB::table('users')->where('id',$id)->delete();
+        return response()->json($users);
     }
 }
