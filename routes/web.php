@@ -32,16 +32,7 @@ Route::prefix('login')->group(function () {
         return view('login.register');
     })->name('registerpage');
 });
-Route::prefix('users')->controller(UserController::class)->group(function () {
-    // Users Get Route
-    Route::get('/create', 'createPage')->name('usercreatepage');
-    Route::get('/index', 'index')->name('userslist');
-    Route::get('/edit/{id}', 'editPage')->name('usereditpage');
-    // User Post Route
-    Route::post('/creat', 'create')->name('usercreate');
-    Route::post('/edit/{id}', 'edit')->name('useredit');
-    Route::delete('/delete/{id}', 'delete')->name('userdelete');
-});
+
 Route::prefix('products')->controller(ProductController::class)->group(function () {
     // Product Get Route
     Route::get('/create', 'createPage')->name('productcretepage');
