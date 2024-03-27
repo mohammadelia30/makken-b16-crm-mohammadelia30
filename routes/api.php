@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CateguryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
@@ -41,4 +42,10 @@ Route::prefix('posts')->controller(PostController::class)->as('posts.')->group(f
     Route::put('{id}', 'edit')->name('edit');
     Route::post('create', 'create')->name('create');
     Route::delete('delete/{id}', 'delete')->name('delete');
+});
+Route::prefix('cats')->controller(CateguryController::class)->as('cats')->group(function () {
+    Route::get('index/{id?}', 'index')->name('index');
+    Route::post('create', 'create')->name('categurycreate');
+    Route::post('{id}', 'edit')->name('categuryedit');
+    Route::delete('delete/{id}', 'delete')->name('categurydelete');
 });
