@@ -28,7 +28,7 @@ class OrderController extends Controller
         return response()->json($orders);
     }
     public function delete($id){
-        DB::table('orders')->where('id', $id)->delete();
-        return redirect()->route('orderslist');
+        $orders = DB::table('orders')->where('id', $id)->delete();
+        return response()->json($orders);
     }
 }
