@@ -30,7 +30,7 @@ Route::prefix('products')->controller(ProductController::class)->as('product.')-
     Route::delete('delete/{id}', 'delete')->name('delete');
 });
 Route::prefix('orders')->controller(OrderController::class)->as('orders.')->group(function () {
-    Route::get('index{id?}', 'index')->name('index');
+    Route::get('index/{id?}', 'index')->name('index');
     Route::post('create', 'create')->name('create');
     Route::post('{id}', 'edit')->name('edit');
     Route::delete('delete/{id}', 'delete')->name('delete');
