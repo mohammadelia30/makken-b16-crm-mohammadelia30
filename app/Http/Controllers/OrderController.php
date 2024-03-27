@@ -24,15 +24,8 @@ class OrderController extends Controller
     }
     public function edit(OrderRequest $request, $id)
     {
-        DB::table('orders')->where('id', $id)->update([
-            'sname' => $request->sname,
-            'gname' => $request->gname,
-            'code' => $request->code,
-            'date' => $request->date,
-            'time' => $request->time,
-            'comment' => $request->comment
-        ]);
-        return redirect()->route('orderslist');
+        $orders = DB::table('orders')->where('id', $id)->update($request->toArray());
+        return response()->json($orders);
     }
     public function delete($id){
         DB::table('orders')->where('id', $id)->delete();
