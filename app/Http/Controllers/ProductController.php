@@ -21,15 +21,8 @@ class ProductController extends Controller
         return response()->json($products);
     }
     public function edit(ProductRequest $request,$id){
-        DB::table('products')->where('id',$id)->update([
-            'name'=> $request->name,
-            'price'=> $request->price,
-            'color' => $request->color,
-            'status'=> $request->status,
-            'number'=> $request->number,
-            'comment'=> $request->comment
-        ]);
-        return redirect()->route('productslist');
+        $products = DB::table('products')->where('id',$id)->update($request->toArray());
+        return response()->json($products);
     }
     public function delete($id){
         DB::table('products')->where('id',$id)->delete();
