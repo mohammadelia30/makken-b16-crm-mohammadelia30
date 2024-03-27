@@ -25,7 +25,7 @@ class ProductController extends Controller
         return response()->json($products);
     }
     public function delete($id){
-        DB::table('products')->where('id',$id)->delete();
-        return redirect()->route('productslist');
+        $products = DB::table('products')->where('id',$id)->delete();
+        return response()->json($products);
     }
 }
