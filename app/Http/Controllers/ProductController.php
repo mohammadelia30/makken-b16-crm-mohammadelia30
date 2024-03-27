@@ -8,16 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    public function index(){
-        $products = DB::table('products')->get();
-        return view('products.index',['products'=> $products]);
-    }
-    public function createPage(){
-        return view('products.create');
-    }
-    public function editPage($id){
-        $product = DB::table('products')->where('id',$id)->first();
-        return view('products.edit',['product'=> $product]);
+    public function index($id = null){
+        if($id){
+            $products = DB::table('products')->where('id', $id)->first();
+        }else{
+            $products = DB::table('products')->orderBy('id','desc')->paginate(5);
+        }
+        return response()->json($products);
     }
     public function create(ProductRequest $request){
         DB::table('products')->insert([$request->except('_token')]);
