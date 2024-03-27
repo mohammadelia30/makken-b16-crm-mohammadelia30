@@ -32,16 +32,6 @@ Route::prefix('login')->group(function () {
         return view('login.register');
     })->name('registerpage');
 });
-Route::prefix('posts')->controller(PostController::class)->group(function () {
-    // Posts Get Route
-    Route::get('/index', 'index')->name('postslist');
-    Route::get('/create', 'createPage')->name('postcreatepage');
-    Route::get('/edit/{id}', 'editPage')->name('posteditpage');
-    // Posts Post Route
-    Route::post('/edit/{id}', 'edit')->name('postedit');
-    Route::post('/create', 'create')->name('postcreate');
-    Route::delete('/delete/{id}', 'delete')->name('postdelete');
-});
 Route::prefix('cats')->controller(CateguryController::class)->group(function () {
     // Categury Get Route
     Route::get('/index', 'index')->name('categureslist');

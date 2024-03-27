@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -33,5 +34,11 @@ Route::prefix('orders')->controller(OrderController::class)->as('orders.')->grou
     Route::get('index/{id?}', 'index')->name('index');
     Route::post('create', 'create')->name('create');
     Route::put('{id}', 'edit')->name('edit');
+    Route::delete('delete/{id}', 'delete')->name('delete');
+});
+Route::prefix('posts')->controller(PostController::class)->as('posts.')->group(function () {
+    Route::get('index{id?}', 'index')->name('index');
+    Route::post('{id}', 'edit')->name('edit');
+    Route::post('create', 'create')->name('create');
     Route::delete('delete/{id}', 'delete')->name('delete');
 });
