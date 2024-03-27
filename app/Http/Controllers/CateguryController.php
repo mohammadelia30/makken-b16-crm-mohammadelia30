@@ -17,19 +17,10 @@ class CateguryController extends Controller
         }
         return response()->json($cats);
     }
-    public function createPage()
-    {
-        return view('categury.create');
-    }
-    public function editPage($id)
-    {
-        $cat = DB::table('categury')->where('id', $id)->first();
-        return view('categury.edit', ['cat' => $cat]);
-    }
     public function create(CateguryRequest $request)
     {
-        DB::table('categury')->insert([$request->except('_token')]);
-        return redirect()->route('categureslist');
+        $cats = DB::table('categury')->insert($request->toArray());
+        return response()->json($cats);
     }
     public function edit(CateguryRequest $request, $id)
     {
