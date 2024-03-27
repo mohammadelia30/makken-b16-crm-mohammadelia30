@@ -24,7 +24,7 @@ Route::prefix('users')->controller(UserController::class)->as('users.')->group(f
 });
 Route::prefix('products')->controller(ProductController::class)->as('product.')->group(function () {
     Route::get('index/{id?}','index')->name('index');
-    Route::post('/create', 'create')->name('create');
-    Route::post('/edit/{id}', 'edit')->name('edit');
-    Route::delete('/delete/{id}', 'delete')->name('delete');
+    Route::post('create', 'create')->name('create');
+    Route::post('{id}', 'edit')->name('edit');
+    Route::delete('delete/{id}', 'delete')->name('delete');
 });
