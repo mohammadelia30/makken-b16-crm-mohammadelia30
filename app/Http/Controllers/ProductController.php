@@ -17,8 +17,8 @@ class ProductController extends Controller
         return response()->json($products);
     }
     public function create(ProductRequest $request){
-        DB::table('products')->insert([$request->except('_token')]);
-        return redirect()->route('productslist');
+        $products = DB::table('products')->insert($request->toArray());
+        return response()->json($products);
     }
     public function edit(ProductRequest $request,$id){
         DB::table('products')->where('id',$id)->update([
