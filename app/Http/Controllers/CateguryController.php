@@ -29,7 +29,7 @@ class CateguryController extends Controller
     }
     public function delete($id)
     {
-        DB::table('categury')->where('id', $id)->delete();
-        return redirect()->route('categureslist');
+        $cats = DB::table('categury')->where('id', $id)->delete();
+        return response()->json($cats);
     }
 }
