@@ -19,8 +19,8 @@ class OrderController extends Controller
     }
     public function create(OrderRequest $request)
     {
-        DB::table('orders')->insert([$request->except('_token')]);
-        return redirect()->route('orderslist');
+        $orders = DB::table('orders')->insert($request->toArray());
+        return response()->json($orders);
     }
     public function edit(OrderRequest $request, $id)
     {
