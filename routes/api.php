@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,4 +21,10 @@ Route::prefix('users')->controller(UserController::class)->as('users.')->group(f
     Route::post('create', 'create')->name('create');
     Route::put('{id}', 'edit')->name('edit');
     Route::delete('delete/{id}', 'delete')->name('delete');
+});
+Route::prefix('products')->controller(ProductController::class)->as('product.')->group(function () {
+    Route::get('index/{id?}','index')->name('index');
+    Route::post('/create', 'create')->name('create');
+    Route::post('/edit/{id}', 'edit')->name('edit');
+    Route::delete('/delete/{id}', 'delete')->name('delete');
 });
