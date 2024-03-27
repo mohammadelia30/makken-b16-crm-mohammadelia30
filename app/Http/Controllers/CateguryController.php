@@ -8,10 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class CateguryController extends Controller
 {
-    public function index()
+    public function index($id = null)
     {
-        $cats = DB::table('categury')->get();
-        return view('categury.index', ['cats' => $cats]);
+        if($id){
+            $cats = DB::table("categury")->where("id", $id)->first();
+        }else{
+            $cats = DB::table('categury')->orderBy('id','desc')->paginate(5);
+        }
+        return response()->json($cats);
     }
     public function createPage()
     {
