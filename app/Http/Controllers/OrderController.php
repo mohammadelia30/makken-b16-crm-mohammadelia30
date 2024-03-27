@@ -8,19 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function index($id = null)
     {
-        $orders = DB::table('orders')->get();
-        return view('orders.index', ['orders' => $orders]);
-    }
-    public function createPage()
-    {
-        return view('orders.create');
-    }
-    public function editPage($id)
-    {
-        $order = DB::table('orders')->where('id', $id)->first();
-        return view('orders.edit', ['order' => $order]);
+        if($id){
+            $orders = DB::table("orders")->where('id',$id)->first();
+        }else{
+            $orders = DB::table('orders')->orderBy('id','desc')->paginate(5);
+        }
+        return response()->json($orders);
     }
     public function create(OrderRequest $request)
     {
