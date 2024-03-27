@@ -19,13 +19,8 @@ class PostController extends Controller
     }
     public function edit(PostRequest $request, $id)
     {
-        DB::table('posts')->where('id', $id)->update([
-            'title' => $request->title,
-            'auther' => $request->auther,
-            'categury_id' => $request->categury_id,
-            'content' => $request->content
-        ]);
-        return redirect()->route('postslist');
+        $posts = DB::table('posts')->where('id', $id)->update($request->toArray());
+        return response()->json($posts);
     }
     public function create(PostRequest $request)
     {
