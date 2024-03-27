@@ -32,16 +32,6 @@ Route::prefix('login')->group(function () {
         return view('login.register');
     })->name('registerpage');
 });
-Route::prefix('orders')->controller(OrderController::class)->group(function () {
-    // Order Get Route
-    Route::get('/create', 'createPage')->name('ordercreatepage');
-    Route::get('/index', 'index')->name('orderslist');
-    Route::get('/edit/{id}', 'editPage')->name('ordereditpage');
-    // Order Post Route
-    Route::post('/create', 'create')->name('ordercreate');
-    Route::post('/edit/{id}', 'edit')->name('orderedit');
-    Route::delete('/delete/{id}', 'delete')->name('orderdelete');
-});
 Route::prefix('posts')->controller(PostController::class)->group(function () {
     // Posts Get Route
     Route::get('/index', 'index')->name('postslist');
