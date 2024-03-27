@@ -29,7 +29,7 @@ class PostController extends Controller
     }
     public function delete($id)
     {
-        DB::table('posts')->where('id', $id)->delete();
-        return redirect()->route('postslist');
+        $posts = DB::table('posts')->where('id', $id)->delete();
+        return response()->json($posts);
     }
 }
