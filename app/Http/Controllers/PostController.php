@@ -8,19 +8,14 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index($id = null)
     {
-        $posts = DB::table('posts')->get();
-        return view('posts.index', ['posts' => $posts]);
-    }
-    public function createPage()
-    {
-        return view('posts.create');
-    }
-    public function editPage($id)
-    {
-        $post = DB::table('posts')->where('id', $id)->first();
-        return view('posts.edit', ['post' => $post]);
+        if($id){
+            $posts = DB::table('posts')->where('id',$id)->first();
+        }else{
+            $posts = DB::table('posts')->orderBy('id','desc')->paginate(5);
+        }
+        return response()->json($posts);
     }
     public function edit(PostRequest $request, $id)
     {
