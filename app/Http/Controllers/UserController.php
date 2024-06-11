@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersRequest;
+use App\Jobs\SendMail;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
@@ -59,11 +60,15 @@ class UserController extends Controller
     }
     public function create(UsersRequest $request)
     {
+        $first_name = $request->first_name;
+        $last_name = $request->larst_name;
+        $email = $request->email;
         $users = User::create($request->merge([
             'password' => Hash::make($request->password)
         ])->toArray());
         $users->assignRole('super admin');
         $users->teams()->attach($request->teams_id);
+        SendMail::dispatch($first_name,$last_name,$email);
         return response()->json($users);
     }
     public function edit(UpdateUserRequest $request, $id)
