@@ -29,6 +29,7 @@ class UserFactory extends Factory
             'phone_number' => fake()->unique()->phoneNumber(),
             'status' => fake()->randomElement(['ویژه','عادی']),
             'gender' => fake()->randomElement(['آقا','خانم']),
+            'email' => fake()->email(),
             'address' =>fake()->address(),
             'comment' => fake()->text(),
             'password' => static::$password ??= Hash::make('mmm1234'),

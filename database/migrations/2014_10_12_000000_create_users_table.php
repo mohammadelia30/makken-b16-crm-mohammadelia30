@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('first_name',50);
             $table->string('last_name',50);
             $table->string('password');
+            $table->string('email');
             $table->string('phone_number',20)->unique();
             $table->enum('status', ['عادی','ویژه']);
             $table->enum('gender', ['آقا','خانم']);

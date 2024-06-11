@@ -29,6 +29,7 @@ class Factory_seeeder extends Seeder
             'phone_number'=>'09022219431',
             "password"=>'wwww1234',
             "status" =>'ویژه',
+            'email' =>'mohammadelia30@gmail.com',
             "gender" =>'آقا'])->create();
         $supur_admin->assignRole('super admin');
         $users = User::factory()
