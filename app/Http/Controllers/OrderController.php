@@ -33,7 +33,7 @@ class OrderController extends Controller
         $orders = Order::find($id)->update($request->toArray());
         return response()->json($orders);
 
-    }public function detach(OrderRequest $request, $id)
+    }public function detach(Request $request, $id)
     {
         $orders = Order::find($id);
         $orders->products()->detach($request->products_id);
