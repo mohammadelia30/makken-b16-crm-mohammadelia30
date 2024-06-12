@@ -35,8 +35,8 @@ class OrderController extends Controller
 
     }public function detach(Request $request, $id)
     {
-        $orders = Order::find($id);
-        $orders->products()->detach($request->products_id);
+        $orders = new Order();
+        $orders->find($id)->products()->detach($request->products_id);
         return response()->json($orders);
     }
     public function delete($id)
