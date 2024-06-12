@@ -45,7 +45,7 @@ Route::middleware('auth:sanctum')->prefix('products')->controller(ProductControl
     Route::put('{id}', 'edit')->middleware('permission:product edit')->name('edit');
     Route::delete('delete/{id}', 'delete')->middleware('permission:product delete')->name('delete');
     Route::post('image/{id}', 'add_image')->middleware('permission:product image create')->name('add_image');
-    Route::delete('delete_image/{id}', 'delete_image')->middleware('permission:product delete image')->name('delete_image');
+    Route::delete('delete_image/{id}', 'delete_image')->middleware('permission:product image delete')->name('delete_image');
 });
 Route::middleware('auth:sanctum')->prefix('orders')->controller(OrderController::class)->as('orders.')->group(function () {
     Route::get('index/{id?}', 'index')->middleware('permission:order index')->name('index');
