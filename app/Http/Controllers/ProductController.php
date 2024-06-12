@@ -40,7 +40,7 @@ class ProductController extends Controller
         $products = Product::destroy($id);
         return response()->json($products);
     }
-    public function add_image(ProductRequest $request , $id)
+    public function add_image(Request $request , $id)
     {
         $product = new Product();
         $product->find($id)->addMedia($request->image)->usingName('product image')->toMediaCollection('products');
