@@ -23,8 +23,8 @@ class FactorRequest extends FormRequest
     {
         return [
             'order_id' => 'required|integer',
-            'warranty_id' => 'required|integer|exists:warranties,id',
-            'total_price' => 'required|integer|exists:products,price',
+            'warranty_id' => 'required|integer',
+            'total_price' => 'required|integer',
             'total_products' => 'required|integer',
         ];
     }
