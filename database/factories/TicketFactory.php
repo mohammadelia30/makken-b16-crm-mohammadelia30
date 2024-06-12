@@ -18,7 +18,7 @@ class TicketFactory extends Factory
     public function definition(): array
     {
         return [
-            'subject' => $this->faker->paragraph(),
+            'subject' => $this->faker->word(),
             'user_id' => User::factory(),
         ];
     }
