@@ -51,7 +51,7 @@ class UserController extends Controller
                     $query->where('code', $code);
                 })->paginate(10);
             }
-            $users = User::with('orders:id,user_id,sname,code,date,time')->paginate(10);
+            $users = User::with('orders:id,user_id,sender_name,code,date,time')->paginate(10);
         }
         if($count_orders){
             $users = $user->withcount('orders')->get();
