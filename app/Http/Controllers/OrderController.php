@@ -44,7 +44,7 @@ class OrderController extends Controller
         $orders = Order::find($id)->delete();
         return response()->json($orders);
     }
-    public function create_factor_pdf(OrderRequest $request,$id)
+    public function create_factor_pdf(Request $request,$id)
     {
         $order = new Order();
         $order->find($id)->addMedia($request->pdf)->usingName('factor_pdf')->toMediaCollection('factor_pdf');
