@@ -73,8 +73,8 @@ Route::middleware('auth:sanctum')->prefix('message')->controller(MessageControll
     Route::post('create','store')->middleware('permission:message create')->name('create');
     Route::put('{id}','edit')->name('edit');
     Route::delete('delete/{id}','delete')->middleware('permission:message delete')->name('delete');
-    Route::post('attach/{id}','attach_media')->middleware('permission: attach media')->name('attach');
-    Route::delete('detach/{id}','detach_media')->middleware('permission: detach media')->name('detach');
+    Route::post('attach/{id}','attach_media')->middleware('permission:attach media')->name('attach');
+    Route::delete('detach/{id}','detach_media')->middleware('permission:detach media')->name('detach');
 });
 Route::middleware('auth:sanctum')->prefix('note')->controller(MessageController::class)->as('note.')->group(function(){
     Route::get('index/{id?}','index')->middleware('permission:note index')->name('index');
