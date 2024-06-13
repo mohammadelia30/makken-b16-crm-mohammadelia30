@@ -14,7 +14,7 @@ class Factor extends Model
     protected $fillable = [
         'order_id',
         'total_price',
-        'total_product',
+        'total_products',
         'warranty_id'
     ];
     public function order(): BelongsTo
