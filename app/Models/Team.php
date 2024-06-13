@@ -15,7 +15,7 @@ class Team extends Model
         'name',
         'activity',
         'leader',
-        'members'
+        'member'
     ];
     public function users():BelongsToMany
     {

@@ -25,7 +25,7 @@ class TeamRequest extends FormRequest
             'name' => 'required|min:2|max:50',
             'activity' => 'required|min:2|max:150',
             'leader' => 'required|min:2|max:50',
-            'members' => 'required|integer',
+            'member' => 'required|integer',
         ];
     }
 }
